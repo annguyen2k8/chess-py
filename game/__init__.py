@@ -19,7 +19,6 @@ class Game:
             self.input.checkInput()
             self.screen.fill("#000000")
             self.clock.tick(self.max_fps)
-            print(self.input.mouseXY)
     
     def quit(self) -> None:
         self.isExitLoop = True
