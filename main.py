@@ -7,6 +7,7 @@ class Game:
     
     def __init__(self):
         pg.mixer.pre_init(44100, -16, 2, 4096)
+        pg.font.init()
         pg.init()
         self.screen = pg.display.set_mode(self.window_size)
         self.clock = pg.time.Clock()
