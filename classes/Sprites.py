@@ -13,7 +13,7 @@ class Sprites:
             raise Exception("File .json in folder", folder_sprites,"not found.")
         self.SpriteCollection = self.loads(sprites)
     
-    def loads(self, sprites:list[dict]) -> None:
+    def loads(self, sprites:list[dict]) -> dict:
         spriteDict = {}
         for sprite in sprites:
             spriteDict[sprite["id"]] = Sprite.load(sprite["file"])
