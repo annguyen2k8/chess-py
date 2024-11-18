@@ -11,19 +11,11 @@ class Input():
     
     @property
     def mouseX(self) -> int:
-        return self.__mouseX
-    
-    @mouseX.setter
-    def mouseX(self, value:int) -> None:
-        self.__mouseXY[0] = self.__mouseX = value
+        return self.__mouseXY[0]
     
     @property
     def mouseY(self) -> int:
-        return self.__mouseY
-    
-    @mouseY.setter
-    def mouseY(self, value:int) -> None:
-        self.__mouseXY[1] = self.__mouseY = value
+        return self.__mouseXY[1]
     
     @property
     def mouseXY(self) -> tuple[int, int]:
@@ -46,7 +38,7 @@ class Input():
         keys = pg.key.get_pressed()
     
     def checkMouseInput(self, events:pg.event.Event) -> None:
-        self.mouseX, self.mouseY = pg.mouse.get_pos()
+        self.mouseXY = pg.mouse.get_pos()
     
     def checkQuitOrRestart(self, events:pg.event.Event) -> None:
         for event in events:
