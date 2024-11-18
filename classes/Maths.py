@@ -1,4 +1,4 @@
-from pygame.math import Vector2
+import pygame as pg
 
-class Vec2D(Vector2):
+class Vec2(pg.Vector2):
     pass

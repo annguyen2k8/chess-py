@@ -13,7 +13,7 @@ class Input():
     def mouseX(self) -> int:
         return self.__mouseX
     
-    @mouseX.letter
+    @mouseX.setter
     def mouseX(self, value:int) -> None:
         self.__mouseXY[0] = self.__mouseX = value
     
@@ -21,7 +21,7 @@ class Input():
     def mouseY(self) -> int:
         return self.__mouseY
     
-    @mouseY.letter
+    @mouseY.setter
     def mouseY(self, value:int) -> None:
         self.__mouseXY[1] = self.__mouseY = value
     
@@ -29,7 +29,7 @@ class Input():
     def mouseXY(self) -> tuple[int, int]:
         return self.__mouseXY
     
-    @mouseXY.letter
+    @mouseXY.setter
     def mouseXY(self, value:tuple[int, int]) -> int:
         self.__mouseXY = value
     
