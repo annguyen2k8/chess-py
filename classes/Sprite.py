@@ -1,20 +1,24 @@
-import pygame as pg
-from .Maths import Vec2
+from pygame import image
+from pygame import transform
+
+from pygame import Surface
+
+from .Maths import Vector2
 
 class Sprite:
-    def __init__(self, image:pg.Surface) -> None:
+    def __init__(self, image:Surface) -> None:
         self.image = image
         self.rect = image.get_rect()
     
     @staticmethod
-    def load(path:str) -> pg.Surface:
-        return Sprite(pg.image.load(path))
+    def load(path:str) -> Surface:
+        return Sprite(image.load(path))
     
     @staticmethod
-    def scale(surface:pg.Surface, size:tuple[int, int]) -> pg.Surface:
-        return pg.transform.scale(surface, size)
+    def scale(surface:Surface, size:tuple[int, int]) -> Surface:
+        return transform.scale(surface, size)
     
-    def draw(self, surface:pg.Surface, pos:Vec2, size: tuple[int, int]) -> None:
+    def draw(self, surface:Surface, pos:Vector2, size: tuple[int, int]) -> None:
         if not size:
             surface.blit(self.img, pos)
         else:

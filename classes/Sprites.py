@@ -19,8 +19,6 @@ class Sprites:
             spriteDict[sprite["id"]] = Sprite.load(sprite["file"])
         return spriteDict
 
-# --- just test ---
-
 # if __name__ == "__main__":
 #     spriteCollection = Sprites("./sprites/piece").SpriteCollection
 #     print(spriteCollection)

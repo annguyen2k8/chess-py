@@ -1,4 +1,3 @@
-# import pygame as pg
 from stockfish import Stockfish
 import time
 
