@@ -1,5 +1,5 @@
-from pygame import Surface
+from pygame import surface
 
 class Menu:
-    def __init__(self, surface:Surface) -> None:
+    def __init__(self, surface:surface.Surface) -> None:
         self.surface = surface

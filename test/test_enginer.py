@@ -1,7 +1,7 @@
 from stockfish import Stockfish
 import time
 
-path_enginer = "enginer\\stockfish\\stockfish-windows-x86-64.exe"
+path_enginer = "./enginer/stockfish/stockfish-windows-x86-64.exe"
 enginer = Stockfish(path_enginer, parameters=dict(Threads=3, UCI_Elo=2000, Hash=16))
 moves = []
 

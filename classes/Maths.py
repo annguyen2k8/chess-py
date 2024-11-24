@@ -1,4 +1,4 @@
-from pygame.math import Vector2
+from pygame import math
 
-class Vector2(Vector2):
+class Vector2(math.Vector2):
   pass

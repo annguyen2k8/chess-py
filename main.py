@@ -1,4 +1,9 @@
-import pygame as pg
+from pygame import init
+from pygame import font
+from pygame import time
+from pygame import mixer
+from pygame import display
+
 from classes.Input import *
 
 class Game:
@@ -6,11 +11,11 @@ class Game:
     max_fps:int = 60
     
     def __init__(self):
-        pg.mixer.pre_init(44100, -16, 2, 4096)
-        pg.font.init()
-        pg.init()
-        self.screen = pg.display.set_mode(self.window_size)
-        self.clock = pg.time.Clock()
+        init()
+        font.init()
+        mixer.pre_init(44100, -16, 2, 4096)
+        self.screen = display.set_mode(self.window_size)
+        self.clock = time.Clock()
         self.input = Input(self)
         self.isRestart = True
         self.isExitLoop = False
