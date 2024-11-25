@@ -24,6 +24,7 @@ class Game:
         while not self.isExitLoop:
             self.input.checkInput()
             self.screen.fill("#000000")
+            display.update()
             self.clock.tick(self.max_fps)
     
     def quit(self) -> None:
