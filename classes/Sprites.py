@@ -2,6 +2,8 @@ import pygame as pg
 import json
 import os
 
+from typing import List
+
 from .Sprite import *
 
 class Sprites:
@@ -13,7 +15,7 @@ class Sprites:
             raise Exception("File .json in folder", folder_sprites,"not found.")
         self.SpriteCollection = self.loads(sprites)
     
-    def loads(self, sprites:list[dict]) -> dict:
+    def loads(self, sprites:List[dict]) -> dict:
         spriteDict = {}
         for sprite in sprites:
             spriteDict[sprite["id"]] = Sprite.load(sprite["file"])

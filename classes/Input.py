@@ -3,12 +3,14 @@ from pygame import mouse
 from pygame import event
 from pygame.locals import *
 
+from typing import Tuple
+
 LEFT = 1
 RIGHT = 3
 MIDDLE = 2
 
 class Input():
-    __mouseXY:tuple[int ,int] = (0, 0)
+    __mouseXY:Tuple[int ,int] = (0, 0)
     
     @property
     def mouseX(self) -> int:
@@ -19,11 +21,11 @@ class Input():
         return self.__mouseXY[1]
     
     @property
-    def mouseXY(self) -> tuple[int, int]:
+    def mouseXY(self) -> Tuple[int, int]:
         return self.__mouseXY
     
     @mouseXY.setter
-    def mouseXY(self, value:tuple[int, int]) -> int:
+    def mouseXY(self, value:Tuple[int, int]) -> int:
         self.__mouseXY = value
     
     @property

@@ -2,7 +2,8 @@ from __future__ import annotations
 
 from pygame import font
 from pygame import surface
-from pygame.draw import rect
+
+from typing import Tuple
 
 from .Maths import Vector2
 
@@ -17,15 +18,15 @@ class Font(font.Font):
         text:str,
         pos:Vector2,
         antialias:bool,
-        color:tuple[int, int, int],
-        background:tuple[int, int, int],
+        color:Tuple[int, int, int],
+        background:Tuple[int, int, int],
         ) -> None:
         surface.blit(
             self.render(
-                text=text,
-                antialias=antialias,
-                color=color,
-                background=background
+                text,
+                antialias,
+                color,
+                background
             ),
             pos
         )
