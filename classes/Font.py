@@ -20,4 +20,12 @@ class Font(font.Font):
         color:tuple[int, int, int],
         background:tuple[int, int, int],
         ) -> None:
-        ...
+        surface.blit(
+            self.render(
+                text=text,
+                antialias=antialias,
+                color=color,
+                background=background
+            ),
+            pos
+        )
