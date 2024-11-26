@@ -3,28 +3,25 @@ from pygame.locals import *
 
 from .Type import *
 
+# NOTE: Should I split class Input into KeyBoard and Mouse handler?
+#       I don't know also I will update it on new update.
+
 LEFT = 1
 MIDDLE = 2
 RIGHT = 3
 
-class Input():
-    __mouseXY:Tuple[int ,int] = (0, 0)
-    
+class Input:
     @property
     def mouseX(self) -> int:
-        return self.__mouseXY[0]
+        return self.mouseXY.x
     
     @property
     def mouseY(self) -> int:
-        return self.__mouseXY[1]
+        return self.mouseXY.y
     
     @property
     def mouseXY(self) -> Tuple[int, int]:
-        return self.__mouseXY
-    
-    @mouseXY.setter
-    def mouseXY(self, value:Tuple[int, int]) -> int:
-        self.__mouseXY = value
+        return Vector2(pg.mouse.get_pos())
     
     @property
     def isLeftMousePressed(self) -> bool:
@@ -63,6 +60,6 @@ class Input():
     
     def check_mouse_pressed(self, button:Literal[1,2,3]) -> bool:
         for event in self.events:
-            if event.type == MOUSEBUTTONUP and event.button == button:
+            if event.type == MOUSEBUTTONDOWN and event.button == button:
                 return True
         return False
