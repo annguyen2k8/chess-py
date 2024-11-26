@@ -48,7 +48,7 @@ class Input:
         keys = pg.key.get_pressed()
     
     def check_mouse(self) -> None:
-        self.mouseXY = pg.mouse.get_pos()
+        ...
     
     def check_quit_or_restart(self) -> None:
         for event in self.events:
