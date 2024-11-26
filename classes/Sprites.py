@@ -1,13 +1,11 @@
-import pygame as pg
 import json
 import os
 
-from typing import List
-
+from .Type import *
 from .Sprite import *
 
 class Sprites:
-    def __init__(self, folder_sprites:str) -> None:
+    def __init__(self, folder_sprites:AnyPath) -> None:
         try:
             with open(os.path.join(folder_sprites, ".json")) as jsonFile:
                 sprites = json.load(jsonFile)

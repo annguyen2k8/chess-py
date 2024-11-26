@@ -1,8 +1,8 @@
-from pygame import surface
+from pygame import Surface
 
 from .Font import *
 
 class Menu:
-    def __init__(self, screen:surface.Surface, font:Font) -> None:
+    def __init__(self, screen:Surface, font:Font) -> None:
         self.screen = screen
         

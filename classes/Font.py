@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+import pygame as pg
 from pygame import font
-from pygame import surface
+from pygame import Surface
 
-from typing import Tuple
-
+from .Type import *
 from .Maths import Vector2
 
 class Font(font.Font):
@@ -14,12 +14,12 @@ class Font(font.Font):
     
     def draw(
         self, 
-        surface:surface.Surface,
-        text:str,
-        pos:Vector2,
-        antialias:bool,
-        color:Tuple[int, int, int],
-        background:Tuple[int, int, int],
+        surface:Surface,
+        text:str|bytes|None,
+        pos:Coordinate,
+        antialias:bool|Literal[0,1],
+        color:Optional[ColorValue],
+        background:Optional[ColorValue],
         ) -> None:
         surface.blit(
             self.render(

@@ -1,13 +1,11 @@
-from pygame import key
-from pygame import mouse
-from pygame import event
+import pygame as pg
 from pygame.locals import *
 
-from typing import Tuple
+from .Type import *
 
 LEFT = 1
-RIGHT = 3
 MIDDLE = 2
+RIGHT = 3
 
 class Input():
     __mouseXY:Tuple[int ,int] = (0, 0)
@@ -29,31 +27,31 @@ class Input():
         self.__mouseXY = value
     
     @property
-    def isLeftMouseButtonPressed(self) -> bool:
-        self.check_mouse_pressed(LEFT)
+    def isLeftMousePressed(self) -> bool:
+        return self.check_mouse_pressed(LEFT)
     
     @property
-    def isRightMouseButtonPressed(self) -> bool:
-        return self.check_mouse_pressed(RIGHT)
-    
-    @property
-    def isMiddleMouseButtonPressed(self) -> bool:
+    def isMiddleMousePressed(self) -> bool:
         return self.check_mouse_pressed(MIDDLE)
+    
+    @property
+    def isRightMousePressed(self) -> bool:
+        return self.check_mouse_pressed(RIGHT)
     
     def __init__(self, game) -> None:
         self.game = game
     
     def check_input(self) -> None:
-        self.events = event.get()
+        self.events = pg.event.get()
         self.check_keyboard()
         self.check_mouse()
         self.check_quit_or_restart()
     
     def check_keyboard(self) -> None:
-        keys = key.get_pressed()
+        keys = pg.key.get_pressed()
     
     def check_mouse(self) -> None:
-        self.mouseXY = mouse.get_pos()
+        self.mouseXY = pg.mouse.get_pos()
     
     def check_quit_or_restart(self) -> None:
         for event in self.events:
@@ -63,7 +61,7 @@ class Input():
                 if event.key == K_F1:    
                     self.game.restart()
     
-    def check_mouse_pressed(self, button:int) -> bool:
+    def check_mouse_pressed(self, button:Literal[1,2,3]) -> bool:
         for event in self.events:
             if event.type == MOUSEBUTTONUP and event.button == button:
                 return True

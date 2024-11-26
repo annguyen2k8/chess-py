@@ -1,8 +1,4 @@
-from pygame import init
-from pygame import font
-from pygame import time
-from pygame import mixer
-from pygame import display
+import pygame as pg
 
 from classes.Input import *
 
@@ -11,20 +7,25 @@ class Game:
     max_fps:int = 60
     
     def __init__(self):
-        init()
-        font.init()
-        mixer.pre_init(44100, -16, 2, 4096)
-        self.screen = display.set_mode(self.window_size)
-        self.clock = time.Clock()
+        pg.init()
+        pg.font.init()
+        pg.mixer.pre_init(44100, -16, 2, 4096)
+        self.screen = pg.display.set_mode(self.window_size)
+        self.clock = pg.time.Clock()
         self.input = Input(self)
         self.isRestart = True
         self.isExitLoop = False
     
     def loop(self) -> None:
         while not self.isExitLoop:
-            self.input.checkInput()
+            self.input.check_input()
+            print(
+                self.input.isLeftMousePressed,
+                self.input.isMiddleMousePressed,
+                self.input.isRightMousePressed,
+            )
             self.screen.fill("#000000")
-            display.update()
+            pg.display.update()
             self.clock.tick(self.max_fps)
     
     def quit(self) -> None:
