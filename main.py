@@ -20,8 +20,11 @@ class Game:
         while not self.isExitLoop:
             self.input.check_input()
             print(
-                self.input.mouseX,
-                self.input.mouseY
+                self.input.isLeftMousePressed,
+                self.input.isMiddleMousePressed,
+                self.input.isRightMousePressed,
+                self.input.isForwardMousePressed,
+                self.input.isBackMousePressed
             )
             self.screen.fill("#000000")
             pg.display.update()

@@ -25,41 +25,42 @@ class Input:
     
     @property
     def isLeftMousePressed(self) -> bool:
-        return self.check_mouse_pressed(LEFT)
+        return self.get_mouse_pressed()[0]
     
     @property
     def isMiddleMousePressed(self) -> bool:
-        return self.check_mouse_pressed(MIDDLE)
+        return self.get_mouse_pressed()[1]
     
     @property
     def isRightMousePressed(self) -> bool:
-        return self.check_mouse_pressed(RIGHT)
+        return self.get_mouse_pressed()[2]
+    
+    @property
+    def isBackMousePressed(self) -> bool:
+        return self.get_mouse_pressed()[3]
+    
+    @property
+    def isForwardMousePressed(self) -> bool:
+        return self.get_mouse_pressed()[4]
     
     def __init__(self, game) -> None:
         self.game = game
     
     def check_input(self) -> None:
-        self.events = pg.event.get()
         self.check_keyboard()
-        self.check_mouse()
         self.check_quit_or_restart()
     
     def check_keyboard(self) -> None:
         keys = pg.key.get_pressed()
     
-    def check_mouse(self) -> None:
-        ...
-    
     def check_quit_or_restart(self) -> None:
-        for event in self.events:
+        for event in pg.event.get():
             if event.type == QUIT:
                 self.game.quit()
             if event.type == KEYDOWN:
                 if event.key == K_F1:    
                     self.game.restart()
     
-    def check_mouse_pressed(self, button:Literal[1,2,3]) -> bool:
-        for event in self.events:
-            if event.type == MOUSEBUTTONDOWN and event.button == button:
-                return True
-        return False
+    @staticmethod
+    def get_mouse_pressed(num_buttons:Literal[5, 3]=5) -> bool:
+        return pg.mouse.get_pressed(num_buttons)
