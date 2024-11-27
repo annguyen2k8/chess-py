@@ -19,13 +19,6 @@ class Game:
     def loop(self) -> None:
         while not self.isExitLoop:
             self.input.check_input()
-            print(
-                self.input.isLeftMousePressed,
-                self.input.isMiddleMousePressed,
-                self.input.isRightMousePressed,
-                self.input.isForwardMousePressed,
-                self.input.isBackMousePressed
-            )
             self.screen.fill("#000000")
             pg.display.update()
             self.clock.tick(self.max_fps)
