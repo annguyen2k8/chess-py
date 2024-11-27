@@ -23,6 +23,10 @@ class Input:
     def mouseXY(self) -> Tuple[int, int]:
         return Vector2(pg.mouse.get_pos())
     
+    @staticmethod
+    def get_mouse_pressed(num_buttons:Literal[5, 3]=5) -> bool:
+        return pg.mouse.get_pressed(num_buttons)
+    
     @property
     def isLeftMousePressed(self) -> bool:
         return self.get_mouse_pressed()[0]
@@ -61,6 +65,3 @@ class Input:
                 if event.key == K_F1:    
                     self.game.restart()
     
-    @staticmethod
-    def get_mouse_pressed(num_buttons:Literal[5, 3]=5) -> bool:
-        return pg.mouse.get_pressed(num_buttons)
