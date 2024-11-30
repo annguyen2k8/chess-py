@@ -1,7 +1,7 @@
 import os
 from cairosvg import svg2png
 
-path_svgs = "lila/public/piece/alpha"
+path_svgs = "svg/piece/alpha"
 path_out = "assets/piece"
 
 for path in os.listdir(path_svgs):

@@ -15,7 +15,7 @@ pieces = {
     "P":"pawn"
 }
 
-path_sprites = "./sprites/piece/"
+path_sprites = os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/assets/sprites/piece/'))
 
 listPieces = []
 for filename in os.listdir(path_sprites):
