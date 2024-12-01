@@ -4,7 +4,7 @@ import pygame as pg
 from pygame import font
 from pygame import Surface
 
-from ..type import *
+from ..types import *
 from ..maths.vector import Vector2
 
 class Font(font.Font):

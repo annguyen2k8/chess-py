@@ -4,12 +4,12 @@ from pygame import image
 from pygame import transform
 from pygame import Surface
 
-from ..type import *
+from ..types import *
 from ..maths.vector import Vector2
 
 class Sprite:
-    def __init__(self, image:Surface) -> None:
-        self.image = image
+    def __init__(self, file:AnyPath) -> None:
+        self.image = self.load(file)
         self.rect = image.get_rect()
     
     @staticmethod

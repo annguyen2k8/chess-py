@@ -2,6 +2,7 @@ from typing import *
 
 from os import PathLike
 from pygame.color import Color
+from pygame.event import Event
 
 from .maths.vector import Vector2
 
