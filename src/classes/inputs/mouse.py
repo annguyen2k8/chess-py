@@ -1,7 +1,7 @@
 import pygame as pg
 
 from ..types import *
-from ..constant import *
+from ..constants import *
 
 class Mouse:
     def __init__(self, input_):

@@ -4,7 +4,7 @@ import pygame as pg
 from .mouse import *
 from .keyboard import *
 from ..types import *
-from ..constant import *
+from ..constants import *
 
 # NOTE: Should I split class Input into KeyBoard and Mouse handler?
 #       I don't know also I will update it on new update

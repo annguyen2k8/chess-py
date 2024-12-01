@@ -1,6 +1,6 @@
 import pygame as pg
 from ..types import *
-from ..constant import *
+from ..constants import *
 
 class Keyboard:
     def __init__(self, input_):
