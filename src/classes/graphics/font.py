@@ -5,12 +5,12 @@ from pygame import font
 from pygame import Surface
 
 from ..types import *
+from ..constants import *
 from ..maths.vector import Vector2
 
 class Font(font.Font):
-    @staticmethod
-    def get_font(name:str, size:int) -> Font:
-        return Font(name, size)
+    def __init__(self, name:FileArg, size:int) -> None:
+        super().__init__(name, size)
     
     def draw(
             self, 
@@ -19,7 +19,7 @@ class Font(font.Font):
             pos:Coordinate,
             antialias:bool|Literal[0,1],
             color:Optional[ColorValue],
-            background:Optional[ColorValue],
+            background:Optional[ColorValue]
         ) -> None:
         surface.blit(
             self.render(

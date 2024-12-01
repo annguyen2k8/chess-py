@@ -1,3 +1,5 @@
+from os import path
+
 import pygame as pg
 
 from pygame import image
@@ -5,19 +7,21 @@ from pygame import transform
 from pygame import Surface
 
 from ..types import *
+from ..constants import *
 from ..maths.vector import Vector2
 
 class Sprite:
     def __init__(self, file:AnyPath) -> None:
-        self.image = self.load(file)
+        try:
+            self.image = self.load_image(file)
+        except FileNotFoundError:
+            raise Exception(f"Failed to load {file}")
         self.rect = image.get_rect()
     
-    @staticmethod
-    def load(file:FileArg) -> Surface:
+    def load_image(self, file:FileArg) -> Surface:
         return Sprite(image.load(file))
     
-    @staticmethod
-    def scale(surface:Surface, size:Coordinate) -> Surface:
+    def scale(self, surface:Surface, size:Coordinate) -> Surface:
         return transform.scale(surface, size)
     
     def draw(self, surface:Surface, pos:Coordinate, size:Coordinate) -> None:
